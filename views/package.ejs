@@ -10,6 +10,7 @@
     <link rel='stylesheet prefetch' href='https://unpkg.com/material-components-web@latest/dist/material-components-web.css'>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/package.css">
+    <link rel="stylesheet" href="/stylesheets/package-loader.css">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     <script src='https://unpkg.com/material-components-web@latest/dist/material-components-web.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -37,7 +38,7 @@
                 </tr>
                 <tr>
                     <td>Package ID</td>
-                    <td><%= packageInfo.name %></td>
+                    <td id="packageid"><%= packageInfo.name %></td>
                 </tr>
                 <tr>
                     <td>Section</td>
@@ -53,13 +54,27 @@
                 </tr>
                 <tr>
                     <td>Price</td>
-                    <td><%= packageInfo.price ? packageInfo.price : "Free" %></td>
+                    <td>$<%= packageInfo.price ? packageInfo.price : "Free" %></td>
                 </tr>
                 <tr>
                     <td>Repository</td>
-                    <td><a href=<%= packageInfo.repo.link %> ></a><%= packageInfo.repo.name %></td>
+                    <td><a p href="<%= packageInfo.repo.link %>" ><%= packageInfo.repo.name %></a></td>
+                </tr>
+                <tr>
+                    <td>Download Link</td>
+                    <td>
+                        <div id="spinner" class="spinner">
+                            <div class="rect1"></div>
+                            <div class="rect2"></div>
+                            <div class="rect3"></div>
+                            <div class="rect4"></div>
+                            <div class="rect5"></div>
+                        </div>
+                        <a id="download-url" href="<%= packageInfo.repo.link %>" ></a>
+                    </td>
                 </tr>
             </table></div>
+
         <% } %>
     </div>
     <footer>

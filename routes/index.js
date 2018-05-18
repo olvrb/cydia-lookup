@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const request = require("request");
 const cydia = require("cydia-api-node");
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -27,7 +29,23 @@ router.post("/getpackages", (req, res, next) => {
 router.get("/package" /* ?package=packageid */, async (req, res, next) => {
   let package = req.query.packageid;
   const info = await cydia.getAllInfo(package);
-  res.render("package", { packageInfo: info });
+  let downURL;
+
+  res.render("package", { packageInfo: info, downloadURL: downURL });
+});
+
+router.get("/downloadURL" /* ?packageid=someid */, (req, res, next) => {
+  request({
+    url: "https://server.s0n1c.org/cydia/download.php",
+    method: "POST",
+    form: { id: req.query.packageid }
+  }, (err, resp, body) => {
+    console.log(resp.body);
+    if (resp.body == "invalid id.") return res.json("Invalid package."); 
+    resp.body = JSON.parse(resp.body);
+    if (resp.body.stats) return res.json("Invalid package."); 
+    return res.json(resp.body.package.file);
+  });
 });
 
 module.exports = router;
