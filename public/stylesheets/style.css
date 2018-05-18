@@ -1,0 +1,145 @@
+@media (min-width: 320px) and (max-width: 500px) {
+  .centered-wrapper:before {
+      content: "";
+      position: relative;
+      display: inline-block;
+      width: 0;
+      height: 25% !important;
+      /* 25% for mobile, 100% for desktop */
+      vertical-align: middle;
+  }
+}
+@media (min-width: 320px) and (max-width: 1000px) and (orientation: landscape) {
+  img {
+      height: 5% !important;
+      width: 5% !important;
+  }
+  .centered-wrapper:before {
+      content: "";
+      position: relative;
+      display: inline-block;
+      width: 0;
+      height: 0% !important;
+      /* 25% for mobile, 100% for desktop */
+      vertical-align: middle;
+  }
+}
+img {
+  height: 0;
+  width: 0;
+}
+html,
+body {
+  background-color: #36393e;
+  color: #acbdbd;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+label {
+  color: #acbdbd;
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #36393e;
+  color: #acbdbd;
+  text-align: center;
+}
+button {
+  position: relative;
+  display: inline-block;
+}
+a {
+  color: #7289da;
+}
+:root {
+  --mdc-theme-primary: #7289da;
+  --mdc-theme-secondary: #acbdbd;
+  --mdc-theme-background: #36393e;
+}
+
+.mdc-floating-label {
+  color: #acbdbd !important;
+  /* Overwrite mdc's label for a very nice dark mode */
+}
+.centered-wrapper {
+  position: relative;
+  text-align: center;
+}
+
+.centered-wrapper:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  /* 25% for mobile, 100% for desktop */
+  vertical-align: middle;
+}
+
+.centered-content {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  top: 100%;
+}
+
+.rotate-right {
+  transform-origin: 50% 50%;
+  animation: 1s rotateRight infinite linear;
+}
+
+.transparent-label {
+  pointer-events: none
+}
+
+@keyframes rotateRight {
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+/* Change the white to any color ;) */
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #36393e inset;
+  box-shadow: 0 0 0 30px #36393e inset;
+}
+
+.header {
+  display: inline-block;
+}
+.logo, .name {
+  display: inline-block !important;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.mdc-list-item__secondary-text {
+  color: #acbdbd !important; 
+}
+.list {
+  padding: 0 0 30% 0;
+}
+.goback {
+  margin-top: 10%;
+}
+
+table tr th {
+  padding: 5px 80px 5px 80px;
+  text-align: left;
+}
+
+.info {
+  text-align: left !important;
+}

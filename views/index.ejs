@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Cydia Lookup</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/stylesheets/about.css">
+  <link rel='stylesheet prefetch' href='https://unpkg.com/material-components-web@latest/dist/material-components-web.css'>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/loader.css">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+  <script src='https://unpkg.com/material-components-web@latest/dist/material-components-web.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+</head>
+
+<body style="text-align: center; font-family: 'Comfortaa' !important;">
+  <div id="header">
+    <h1 class="name">Cydia Lookup</h1>
+  </div>
+  <div class="centered-content">
+    <h5 id="inputError" class="mdc-typography--headline5" style="color: #c62f36; font-family: 'Comfortaa' !important; top: 50%; position: relative; margin: 0 auto; text-align: center">
+      </h3>
+      <form id="form">
+        <div class="mdc-text-field">
+          <input autocorrect="off" autocapitalize="off" spellcheck="false" style="color: #acbdbd" id="package" type="text" id="my-text-field"
+            class="mdc-text-field__input" size="40">
+          <label id="floatLabel" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
+            unselectable="on" onselectstart="return false;" class="mdc-floating-label transparent-label" for="my-text-field">Package name or identifier.</label>
+          <div class="mdc-line-ripple"></div>
+        </div>
+        <br>
+        <button id="submitForm" class="mdc-button mdc-button--raised" type="submit">Search</button>
+      </form>
+      <div id="loader" class="cssload-loader-inner">
+          <div class="cssload-cssload-loader-line-wrap-wrap">
+            <div class="cssload-loader-line-wrap"></div>
+          </div>
+          <div class="cssload-cssload-loader-line-wrap-wrap">
+            <div class="cssload-loader-line-wrap"></div>
+          </div>
+          <div class="cssload-cssload-loader-line-wrap-wrap">
+            <div class="cssload-loader-line-wrap"></div>
+          </div>
+          <div class="cssload-cssload-loader-line-wrap-wrap">
+            <div class="cssload-loader-line-wrap"></div>
+          </div>
+          <div class="cssload-cssload-loader-line-wrap-wrap">
+            <div class="cssload-loader-line-wrap"></div>
+          </div>
+        </div>
+      <div class="list" id="results">
+        <ul class="mdc-list mdc-list--two-line">
+        </ul>
+      </div>
+      <footer>
+        <button id="about" onclick="location.href='/about'" class="mdc-button mdc-button--raised">about</button>
+        <p hidden id="cookie-info">we use cookies to ensure you get the best experience
+          <a id="cookie-consent" href="#">i understand</a>
+        </p>
+        <p>made with
+          <a id="heart">❤</a> in stockholm by oliver</p>
+      </footer>
+      <script src="/javascripts/index.js"></script>
+</body>
+
+</html>
