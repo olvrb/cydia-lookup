@@ -11,7 +11,6 @@ $(document).ready(() => {
 $("#cookie-consent").click(e => {
     Cookies.set("hasAccepted", "true");
     if (Cookies.get("hasAccepted") == "true") {
-        console.log("hide");
         $("#cookie-consent").hide();
         $("#cookie-info").hide();
     }

@@ -30,7 +30,6 @@ $("#form").submit(e => {
     $("#loader").show();
     $.post(`${baseUrl}getpackages?package=${address}`, resp => { // to avoid cors errors we're getting the balance server-side
         resp = JSON.parse(resp);
-        console.log(resp);
         if (resp.results.length === 0) {
             $("#inputError").show();
             $("#inputError").html("No packages were found.");

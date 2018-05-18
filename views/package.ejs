@@ -27,6 +27,16 @@
         <% if (!packageInfo) { %>
             <h1 style="color: #c62f36 !important;">This package does not exist.</h1>
         <% } else {%>
+            <script>
+                $(document).ready(() => {    
+                    $("#spinner").show();
+                    $.get(`/downloadURL?packageid=${document.getElementById("packageid").innerText}`, data => {
+                        $("#download-url").html("Download");
+                        $("#download-url").attr("href", data);
+                        $("#spinner").hide();
+                    });
+                });    
+            </script>
             <div class="tg-wrap info"><table>
                 <tr>
                     <th></th>
@@ -54,7 +64,7 @@
                 </tr>
                 <tr>
                     <td>Price</td>
-                    <td>$<%= packageInfo.price ? packageInfo.price : "Free" %></td>
+                    <td><%= packageInfo.price ? "$" + packageInfo.price : "Free" %></td>
                 </tr>
                 <tr>
                     <td>Repository</td>

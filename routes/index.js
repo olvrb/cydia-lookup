@@ -38,7 +38,6 @@ router.get("/downloadURL" /* ?packageid=someid */, (req, res, next) => {
     method: "POST",
     form: { id: req.query.packageid }
   }, (err, resp, body) => {
-    console.log(resp.body);
     if (resp.body == "invalid id.") return res.json("Invalid package."); 
     resp.body = JSON.parse(resp.body);
     if (resp.body.stats) return res.json("Invalid package."); 
